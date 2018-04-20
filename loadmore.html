@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style type="text/css">
+    *{margin:0;padding:0;}
+    #wrap{width:200px;height:200px;overflow-x:hidden;overflow-y:scroll;background:lightgray;margin:50px;box-sizing:content-box}
+    #scroll{height:200px;width:100%;background:yellow;margin-top:50px;margin-bottom:50px}
+    #desc{padding:50px}
+</style>
+<script>
+    function $(str){
+        return document.getElementById(str)
+    }
+    function desc(){
+        html = '';
+        // html = '#scroll.clientHeight: ' + $('scroll').clientHeight ;
+        // html += '<br>'
+        // html += '#scroll.offsetTop: ' + $('scroll').offsetTop;
+        html += '#wrap.clientHeight: ' + $('wrap').clientHeight
+        html += '<br>'
+        html += '#wrap.scrollTop: ' + $('wrap').scrollTop;
+        html += '<br>'
+        html += 'sum : '+ ($('wrap').clientHeight + $('wrap').scrollTop);
+        html += '<br>'
+        html += '#scroll.clientHeight + #scroll.marginTop + #scroll.marginBottom: ' + ($('scroll').clientHeight + 100)
+        html += '<br>'
+       // html += '#scroll.marginTop: ' + $('scroll').offsetTop;
+        $('desc').innerHTML = html;
+        if($('wrap').clientHeight + $('wrap').scrollTop >= $('scroll').clientHeight+ 100){
+            console.log('scrollEnd')
+        }
+    }
+</script>
+
+<div id="wrap">
+    <div id="scroll">
+        dsfafafka
+        afafkaaff
+        afakf
+
+        faafadfa
+        affadf
+        fafaf
+        fsfsfsfs
+    </div>
+</div>
+
+<div id="desc"></div>
+<script>
+    $('wrap').addEventListener('scroll',desc,false)
+</script>
+
+</body>
+</html>

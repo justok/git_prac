@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //打乱数组
+    var a = [1,2,3,4,5]
+    a.sort(function(a,b){
+        return Math.random()-0.5
+    })
+    console.log(a)
+
+    //生成100自然数组
+    //方法1
+    var arr = [...Array(100).keys()];
+    console.log(arr)
+
+    //方法2
+    var arr2 = Object.keys(Array.apply(null,{length:100})).map(function(v,k){
+        return +v
+    })
+    console.log(arr2)
+
+    //方法3
+    var arr3 = Object.keys(Array.from({length:100})).map(function(v,k){
+        return +v
+    })
+    console.log(arr3)
+
+
+    //利用Math.max 求数组最大值
+    console.log(Math.max.apply(null,[1,2,3,4,5]))
+    //原理：apply技巧，将一个数组传给不接受数组参数的函数。
+</script>
+
+</body>
+</html>
